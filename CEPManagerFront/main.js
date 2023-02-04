@@ -53,11 +53,10 @@ buscarBtn.addEventListener("click", function() {
 
 //cria a lista dos endereços e estabelece constantes para form e corpo da tabela
 const form = document.querySelector("form");
-const lista = [];
 const tabelaCorpo = document.getElementById("tabela-corpo");
 
-//Condiciona que ao apertar o botão salvar os dados devem ser salvos na lista que vai pra tabela
-form.addEventListener("submit", function(event) {
+// Envia a requisição POST para adicionar um novo endereço
+form.addEventListener("submit", async function(event) {
   event.preventDefault();
   if (event.submitter.id === "salvar") {
     const dados = {
@@ -69,13 +68,46 @@ form.addEventListener("submit", function(event) {
       estado: this.estado.value,
       numero: this.numero.value
     };
-    lista.push(dados);
-    const tr = document.createElement("tr");
-    for (const prop in dados) {
-      const td = document.createElement("td");
-      td.textContent = dados[prop];
-      tr.appendChild(td);
+
+    try {
+      const response = await fetch("http://localhost:8090/enderecos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)        
+      });      
+      const novoEndereco = await response.json();
+      const tr = document.createElement("tr");
+      for (const prop in novoEndereco) {
+        const td = document.createElement("td");
+        td.textContent = novoEndereco[prop];
+        tr.appendChild(td);
+      }
+      tabelaCorpo.appendChild(tr);
+    } catch (err) {
+      console.error(err);
+      console.error(response.status);
+      console.error(response.statusText);
     }
-    tabelaCorpo.appendChild(tr);
+  }
+});
+
+// Carrega todos os endereços e atualiza a tabela
+window.addEventListener("load", async function() {
+  try {
+    const response = await fetch("http://localhost:8090/enderecos");
+    const enderecos = await response.json();
+    for (const endereco of enderecos) {
+      const tr = document.createElement("tr");
+      for (const prop in endereco) {
+        const td = document.createElement("td");
+        td.textContent = endereco[prop];
+        tr.appendChild(td);
+      }
+      tabelaCorpo.appendChild(tr);
+    }
+  } catch (err) {
+    console.error(err);
   }
 });

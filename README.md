@@ -1,2 +1,2 @@
-# Academia-CX-Projeto-Final
-Projeto Final JavaScript, CSS e HTML - (Academia CX - NTT Data Business Solutions)
+# CEPManager
+Usando a API de CEP, busca CEPS e salva no banco de dados local MySQL

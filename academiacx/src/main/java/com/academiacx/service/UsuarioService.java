@@ -1,12 +1,11 @@
 package com.academiacx.service;
 
-import com.academiacx.handler.exceptions.ParametroNullException;
 import com.academiacx.handler.exceptions.UsuarioNaoEncontradoException;
 import com.academiacx.handler.exceptions.UsuarioOuSenhaInvalidosException;
 import com.academiacx.model.UsuarioModel;
 import com.academiacx.repository.UsuarioRepository;
+import com.academiacx.security.HashFunction;
 import com.academiacx.utils.ValidacaoUtils;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -31,7 +30,7 @@ public class UsuarioService {
         }
 
         Optional<UsuarioModel> usuarioModel = usuarioRepository.findByUsernameAndPassword(usuario.getUsername(),
-                                                                                          new BCryptPasswordEncoder().encode(usuario.getPassword()));
+                                                                                          HashFunction.getHash(usuario.getPassword()));
 
         if (usuarioModel.isEmpty()) {
             throw new UsuarioOuSenhaInvalidosException("Usuário ou senha inválidos!");

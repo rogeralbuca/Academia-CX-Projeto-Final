@@ -3,6 +3,7 @@ package com.academiacx.controller;
 
 import com.academiacx.model.EnderecoModel;
 import com.academiacx.service.EnderecoService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ public class EnderecoController {
     }
 
 
-    @PostMapping
+    @PostMapping(value = "/inserir", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EnderecoModel> inserir(@RequestBody EnderecoModel enderecoModel) {
 
         EnderecoModel response = enderecoService.inserir(enderecoModel);

@@ -1,0 +1,42 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.inputError {
+    color: red;
+}
+
+.inputSuccess {
+    color: green;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.footerText {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.instagram {
+    background-color: #ac2bac;
+}
+
+.linkedin {
+    background-color: #0082ca;
+}
+
+.github {
+    background-color: #333333;
+}

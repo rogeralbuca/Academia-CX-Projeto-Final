@@ -6,8 +6,8 @@ Tem duas partes:
 
 ## como usar
 - baixe esse repositório  
-- abra a pasta do backend no seu IntelliJ e altere o username e password para o que você usa no seu MysQL no application.properties  
-- as duas controllers estão definidas para receber CORS { * } como padrão, mas é recomendável que você coloque apenas seu localhost de onde estará rodando seu front  
+- abra a pasta do backend no seu IntelliJ e altere o username e password para o que você usa no seu MySQL no application.properties  
+- as duas controllers estão definidas para receber CORS { * } como padrão para que qualquer pessoa que for rodar essa aplicação rode com menos burocracia, mas é recomendável por segurança que você coloque apenas seu localhost de onde estará rodando seu front  
 - Execute mvn spring-boot:run  
 - o banco de dados "cepmanagerserver", tabela "endereco" e "user" serão erguidos automaticamente
 - abra a pasta do frontend e execute index.html  

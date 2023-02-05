@@ -1,35 +1,22 @@
-//Estabelece uma pequena base de dados de users e passwords
-const users = [
-  {
-      username: 'admin',
-      password: 'admin',
-      role: 'admin'
-  },
-  {
-      username: 'tiagoluis86',
-      password: 'quadrado86?',
-      role: 'user'
-  },
-  {
-      username: 'brotoela',
-      password: 'broto123',
-      role : 'user'
-  },
-];
-
-//Verifica se o usuário e senha existem e faz o login redirecionando a página ou dá erro 
-function submitForm() {
+async function submitForm() {
   const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;  
-
+  const password = document.querySelector('#password').value;
+  
+  try {
+  const response = await fetch(`http://localhost:8090/users/?username=${username}&password=${password}`);
+  const users = await response.json();
   const user = users.find(u => u.username === username && u.password === password);
-  if (user) {      
-      localStorage.setItem("username", username);
-      window.location.href = `app.html?${username}`;     
+  if (user) {
+  localStorage.setItem("username", username);
+  window.location.href = `app.html?${username}`;
   } else {
-      document.querySelector('#message').innerHTML = 'Usuário ou senha inválido';
-  } 
-}
+  document.querySelector('#message').innerHTML = 'Dados de acesso inválidos';
+  }
+  } catch (error) {
+  console.error(error);
+  document.querySelector('#message').innerHTML = 'Erro ao conectar com o servidor';
+  }
+  }
 
 //Faz logout
 function logout() { 

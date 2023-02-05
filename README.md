@@ -2,6 +2,17 @@
 
 * Aluno: Gianluca Notari Magnabosco da Silva
 
+* Os arquivos do Frontend encontram-se no seguinte diretório: 
+
+```
+└── Academia-CX-Projeto-Final
+    └── academiacx
+        └── src
+            └── main
+                └── resources
+                    └── public
+```
+
 <br/>
 <br/>
 
@@ -25,6 +36,8 @@
 * É necessário possuir Java instalado;
 
 * É necessário possuir a IDE IntelliJ instalada;
+
+* A porta 8080 deve estar livre, porém é possível alterar a porta onde a aplicação irá rodar atraves do arquivo `application.properties`;
 
 
 <br/>
@@ -64,7 +77,7 @@
 
 ## Validações
 
-* O usuário e a senha precisam ser informados para submissão do formulário;
+* O usuário e a senha precisam ser informados para submissão do formulário de login;
 
 * Existe também uma validação no Backend caso o usuário ou senha não sejam informados;
 
@@ -80,10 +93,10 @@
 
 * O CEP e o número possuem validações tanto no Front quanto no Backend;
 
-* O número pode ser informado como [nº ; Nº ; n; n. ; e apenas números;];
+* O número pode ser informado como [nº || Nº || n || n. || apenas números];
 
-* Caso o usuário não seja informado, o cliente será avisado;
+* Caso o usuário não seja informado, o cliente será avisado `(app.html)`;
 
-* Caso o usuário não seja encontrado, o cliente será avisado;
+* Caso o usuário não seja encontrado, o cliente será avisado `(app.html)`;
 
-* Nenhum dos campos de endereço pode ser vazio, havendo validação para todos;
+* Nenhum dos campos de endereço pode ser vazio, havendo validação para todos `(app.html)`;

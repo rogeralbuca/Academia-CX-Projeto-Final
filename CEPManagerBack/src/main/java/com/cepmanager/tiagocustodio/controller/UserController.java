@@ -8,7 +8,7 @@ import java.util.List;
 
 // Controlador REST para a entidade "User" e tem métodos para realizar operações CRUD
 // Ela usa um objeto UserService para executar as ações requisitadas.
-@CrossOrigin(origins = {"http://127.0.0.1:5500"})
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/users")
 public class UserController {

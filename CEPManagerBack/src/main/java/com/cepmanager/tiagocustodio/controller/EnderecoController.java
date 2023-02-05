@@ -8,7 +8,7 @@ import java.util.List;
 
 // Controlador REST para a entidade "Endereço" e tem métodos para realizar operações CRUD
 // Ela usa um objeto EnderecoService para executar as ações requisitadas.
-@CrossOrigin(origins = {"http://127.0.0.1:5500"})
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/enderecos")
 public class EnderecoController {

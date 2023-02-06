@@ -1,1 +1,59 @@
-# Readme em construção
+## Descrição do Projeto
+
+Este projeto consiste em construir uma aplicação de ponta a ponta que aplica os conceitos aprendidos no decorrer de três semanas na Academia CX da NTT Data Business Solutions.
+
+A aplicação é uma plataforma de gerenciamento de endereços para usuários. Os usuários podem criar endereços e visualizar uma lista de endereços criados.
+
+A aplicação tem uma parte de back-end (Spring), que é responsável por gerenciar a conexão com o banco de dados (MySQL) e por fornecer as informações solicitadas pela parte de front-end (HTML/CSS/Javscript). A parte de front-end é responsável por exibir as informações para o usuário e permitir a interação com a aplicação.
+
+## Execução do projeto
+
+Para rodar este projeto, você precisará dos seguintes softwares instalados em sua máquina:
+
+1. MySQL: É necessário ter um banco de dados MySQL instalado e configurado para poder rodar a aplicação de back-end.
+
+2. IntelliJ: Este é o ambiente de desenvolvimento integrado (IDE) recomendado para rodar o código do back-end.
+
+3. Visual Studio Code: Esta é a IDE recomendado para rodar o código do front-end. Além disso, é necessário instalar o plugin Five Server para rodar o código do front-end.
+
+Instruções para execução
+
+1. Clone o repositório do projeto em sua máquina.
+
+2. Inicie o servidor MySQL. Crie um banco de dados com o nome `commercenttcx` é importante verificar se a configuração do `application.proporties` esta acessando o servidor sql na porta correta
+
+3. Abra o a pasta `back-end` no IntelliJ e execute a aplicação.
+
+4. Abra a pasta `front-end` no Visual Studio Code.
+
+5. Certifique-se de que o plugin Five Server está instalado e ativo no Visual Studio Code.
+
+6. Inicie o `index.html` usando o Five Server.
+
+_IMPORTANTE_
+
+_Obs¹:_ Caso você tente rodar o front-end sem o Five Server, você receberá um erro de CORS.
+
+_Obs²:_ Para que funcione corretamente é importante que o import.sql tenha sido lido corretamente pelo hibernate.
+
+## Usuários Cadastrados
+
+### Usuários
+
+joaosilva
+
+mariasouza
+
+josepereira
+
+anarodriguez
+
+fabioalmeida
+
+carlanunes
+
+### Senha
+
+Todos os usuários possuem a mesma senha: senha123
+
+## Ilustração do projeto [construindo]

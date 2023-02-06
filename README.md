@@ -12,9 +12,9 @@ Para rodar este projeto, você precisará dos seguintes softwares instalados em 
 
 1. MySQL: É necessário ter um banco de dados MySQL instalado e configurado para poder rodar a aplicação de back-end.
 
-2. IntelliJ: Este é o ambiente de desenvolvimento integrado (IDE) recomendado para rodar o código do back-end.
+2. IntelliJ: Este é o ambiente de desenvolvimento integrado (IDE) recomendada para rodar o código do back-end.
 
-3. Visual Studio Code: Esta é a IDE recomendado para rodar o código do front-end. Além disso, é necessário instalar o plugin Five Server para rodar o código do front-end.
+3. Visual Studio Code: Esta é a IDE recomendada para rodar o código do front-end. Além disso, é necessário instalar o plugin Five Server para rodar o código do front-end.
 
 Instruções para execução
 
@@ -32,13 +32,13 @@ Instruções para execução
 
 _IMPORTANTE_
 
-_Obs¹:_ Caso você tente rodar o front-end sem o Five Server, você receberá um erro de CORS.
+_Obs¹:_ Caso você tente rodar o front-end sem o Five Server, você receberá um erro de violação CORS Policy.
 
-_Obs²:_ Para que funcione corretamente é importante que o import.sql tenha sido lido corretamente pelo hibernate.
+_Obs²:_ Para que funcione corretamente é importante que o `import.sql` tenha sido lido corretamente pelo hibernate.
 
 ## Usuários Cadastrados
 
-### Usuários
+### `Usuários`
 
 joaosilva
 
@@ -52,7 +52,7 @@ fabioalmeida
 
 carlanunes
 
-### Senha
+### `Senha`
 
 Todos os usuários possuem a mesma senha: senha123
 

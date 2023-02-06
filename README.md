@@ -56,4 +56,31 @@ carlanunes
 
 Todos os usuários possuem a mesma senha: senha123
 
-## Ilustração do projeto [construindo]
+## Ilustração do projeto 
+### Tela de Login
+![image](https://user-images.githubusercontent.com/101530871/216881265-8e63968f-fc8b-4e9a-898b-47667b6b3cd2.png)
+
+### Formulário de Cadastro de Endereços
+
+![image](https://user-images.githubusercontent.com/101530871/216881487-1e96c2ce-7590-4329-81ee-bdc42349a75c.png)
+
+### Preenchimento automático
+
+![image](https://user-images.githubusercontent.com/101530871/216881569-016e34b3-925c-44b3-83ac-a968df92582c.png)
+
+### Confirmação de Cadastro
+
+![image](https://user-images.githubusercontent.com/101530871/216881644-45c0f649-5edd-47d5-b4e4-b232a30c9b08.png)
+
+### Lista de Endereços do Usuário
+
+![image](https://user-images.githubusercontent.com/101530871/216881706-dcb8caea-4595-438f-8208-e214aeef3a68.png)
+
+### O Botão `ver no mapa` te direciona para o endereço no google maps
+
+![image](https://user-images.githubusercontent.com/101530871/216881798-d1e4791f-5732-486d-a871-d1a8f98be0ae.png)
+
+### Imagem do banco de dados com o novo endereço inserido
+
+![image](https://user-images.githubusercontent.com/101530871/216882335-772397ca-0301-4ce8-b7f4-2ca1ea5394fa.png)
+

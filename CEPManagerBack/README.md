@@ -5,6 +5,7 @@
 ## Detalhes
 
 - Rotas existentes: GET ALL, GET por ID, POST, PUT e DELETE.
+- Abrange as classes de Endereco e User.  
 
 ## Como usar
 
@@ -19,8 +20,8 @@
 - Crie requisições nesse sentido  
 ![image](https://user-images.githubusercontent.com/70555750/216785741-0d402835-349d-4434-9d88-7b84cc1123b1.png)  
 
-- Requisições GET ALL e POST devem ser feitas para a rota /enderecos  
-- Requisições GET por ID, PUT e DELETE devem ser feitas para /enderecos/{id} 
+- Requisições GET ALL e POST devem ser feitas para a rota /enderecos ou /users  
+- Requisições GET por ID, PUT e DELETE devem ser feitas para /enderecos/{id} ou /users/{id} 
 
 
 ## Exemplo de requisições POST e PUT  

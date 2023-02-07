@@ -1,0 +1,14 @@
+com\cepmanager\tiagocustodio\service\EnderecoService.class
+com\cepmanager\tiagocustodio\controller\UserController.class
+com\cepmanager\tiagocustodio\handler\exceptions\DetalhesErro.class
+com\cepmanager\tiagocustodio\handler\exceptions\RecursoNaoEncontradoException.class
+com\cepmanager\tiagocustodio\service\UserService.class
+com\cepmanager\tiagocustodio\utils\ValidationUtils.class
+com\cepmanager\tiagocustodio\handler\resource\ResourceExceptionHandler.class
+com\cepmanager\tiagocustodio\model\EnderecoModel.class
+com\cepmanager\tiagocustodio\handler\exceptions\ParametroInvalidoException.class
+com\cepmanager\tiagocustodio\repository\UserRepository.class
+com\cepmanager\tiagocustodio\MainApplication.class
+com\cepmanager\tiagocustodio\repository\EnderecoRepository.class
+com\cepmanager\tiagocustodio\controller\EnderecoController.class
+com\cepmanager\tiagocustodio\model\UserModel.class

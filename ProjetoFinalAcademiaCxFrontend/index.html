@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/main.js" type="module" defer></script>
+    <script src="./js/functions.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Cadastrar Endereço</title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div class="button-container">
+          <button onclick="redirecionarLogin()" class="buttonLogout">
+            Logout
+          </button>
+        </div>
+      </nav>
+
+      <div class="box">
+        <div class="img-box">
+          <img
+            src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-rastreamento-de-localizacao_114360-5155.jpg?t=st=1675719592~exp=1675720192~hmac=cfbdfbf9c618afd259e03bde5efd59a4f963cdde250d805cbecc6852a630d4d4"
+          />
+        </div>
+
+        <div class="form-box">
+          <h1>Cadastrar Endereço</h1>
+          <form action="#">
+            <div>
+              <div class="input-group">
+                <label for="nome">Nome</label>
+                <input
+                  type="text"
+                  id="nome"
+                  placeholder="Digite o seu nome completo"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <div class="input-group">
+                <label for="cep">CEP</label>
+                <input
+                  type="text"
+                  id="cep"
+                  placeholder="Digite o seu cep"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="endereco">Endereço</label>
+                <input
+                  type="text"
+                  id="endereco"
+                  placeholder="Digite o seu endereço"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="numero">Número</label>
+                <input
+                  type="text"
+                  id="numero"
+                  placeholder="Digite o seu numero"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <div class="input-group">
+                <label for="bairro">Bairro</label>
+                <input
+                  type="text"
+                  id="bairro"
+                  placeholder="Digite o seu bairro"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="cidade">Cidade</label>
+                <input
+                  type="text"
+                  id="cidade"
+                  placeholder="Digite a sua cidade"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="estado">Estado</label>
+                <input
+                  type="text"
+                  id="estado"
+                  placeholder="Digite o seu estado"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <button
+                onclick="save(), cadastraCep(), validarCep()"
+                type="submit"
+              >
+                Salvar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

@@ -10,27 +10,5 @@ public class CommerceApplication {
         SpringApplication.run(CommerceApplication.class, args);
     }
 
-//    @Bean
-//    public WebMvcConfigurer corsConfigurer() {
-//        return new WebMvcConfigurer() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/client").allowedOrigins("*");
-//            }
-//        };
-//
-//    }
-//
-//    @Bean
-//    public WebMvcConfigurer webMvcConfigurer() {
-//        return new WebMvcConfigurer() {
-//            @Override
-//            public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//                registry
-//                        .addResourceHandler("/resources/**")
-//                        .addResourceLocations("classpath:/resources/");
-//            }
-//        };
-//    }
 
 }

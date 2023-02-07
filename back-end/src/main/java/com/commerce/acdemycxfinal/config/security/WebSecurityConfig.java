@@ -46,27 +46,6 @@
 //
 //
 //    @Bean
-//    public CorsFilter corsFilter() {
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        CorsConfiguration config = new CorsConfiguration();
-//        config.setAllowCredentials(true);
-//        config.addAllowedOrigin("/**");
-//        config.addAllowedHeader("*");
-//        config.addAllowedMethod("*");
-//        source.registerCorsConfiguration("/**", config);
-//        return new CorsFilter(source);
-//    }
-//
-//
-////    @Bean
-////    public InMemoryUserDetailsManager userDetailsService(){
-////        UserDetails user = User.withUsername("ana").password(passwordEncoder().encode("senha123")).roles().build();
-////        return new InMemoryUserDetailsManager(user);
-////    }
-//
-//
-//
-//    @Bean
 //    public PasswordEncoder passwordEncoder(){
 //        return new BCryptPasswordEncoder();
 //    }

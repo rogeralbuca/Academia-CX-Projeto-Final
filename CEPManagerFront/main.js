@@ -46,14 +46,17 @@ const tabelaCorpo = document.getElementById("tabela-corpo");
 form.addEventListener("submit", async function(event) {
   event.preventDefault();
   if (event.submitter.id === "salvar") {
+    const username = localStorage.getItem("username");
     const dados = {
+      username: username,
       cep: this.cep.value,
       nome: this.nome.value,
       rua: this.rua.value,
       bairro: this.bairro.value,
       cidade: this.cidade.value,
       estado: this.estado.value,
-      numero: this.numero.value
+      numero: this.numero.value,
+      datetime: new Date().toISOString()
     };
 
     try {

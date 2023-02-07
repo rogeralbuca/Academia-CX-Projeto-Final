@@ -15,3 +15,4 @@ Tem duas partes:
 - você pode fazer login com admin / admin ou user / user de username e password, respectivamente, dados que já sobem como padrão na tabela "user"  
 - após fazer login você pode fazer pesquisas na API de CEPs e salvar (POST) na tabela MySQL "endereco", que será exibida de acordo no front através de um GET  
 - você pode testar todas as rotas no Postman para GET ALL, GET by ID, POST, PUT e DELETE para as rotas /users e /enderecos  
+- instruções mais específicas podem ser encontradas no readme de cada projeto  

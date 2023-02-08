@@ -54,7 +54,7 @@ function checkInput() {
   }
 
   if (estadoValue === "") {
-    setErrorFor(estado, "O cep é obrigatório");
+    setErrorFor(estado, "O estado é obrigatório");
   } else {
     setSucessFor(estado);
   }
@@ -123,9 +123,6 @@ const pesquisarCep = async () => {
 
 document.getElementById("cep").addEventListener("focusout", pesquisarCep);
 
-  // -----------------------------------------------------------------------------------------------------//
-
-
 // APAGAR FORMULÁRIO APÓS CADASTRO
 const apagarFormulario = () => {
   document.getElementById('cep').value = "";
@@ -136,7 +133,6 @@ const apagarFormulario = () => {
   document.getElementById("estado").value = "";
   document.getElementById("numero").value = "";
 };
-
 
 // CADASTRAR ENDEREÇOS
 const btnCadastro = document.getElementById('btn-cadastrar');
@@ -163,6 +159,10 @@ async function login(event) {
     'numero': inputNumero,
   }
 
+  if(inputCep === '' || inputRua === '' || inputBairro === '' || inputCidade === '' || inputEstado === '' || inputNumero === ''){
+    return false;
+  }
+
   const response = await fetch('http://localhost:8090/address/save', {
     method: 'POST',
     headers: {
@@ -171,9 +171,9 @@ async function login(event) {
     },
     body: JSON.stringify(dados)
   });
+
   const content = await response.json();
   console.log(content);
-  // apagarFormulario();
   cadastroRealizado.innerText = 'Cadastro realizado com sucesso! ';
 
 // DIRECIONAMENTO PARA GOOGLE MAPS
@@ -189,14 +189,10 @@ async function login(event) {
           )}`)
     })
   }
+  apagarFormulario();
 };
 
 btnCadastro.addEventListener("click", login);
-
-
-
-
-
 
 // LOGOUT
 function sair(){

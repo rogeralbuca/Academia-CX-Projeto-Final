@@ -115,6 +115,8 @@ public class EnderecoService {
         ValidacaoUtils.validarNaoVazio(enderecoDto.getEstado(), "Informe o estado");
         ValidacaoUtils.validarNaoVazio(enderecoDto.getNumero(), "Favor inserir o número");
 
+        ValidacaoUtils.cepValidation(enderecoDto.getCep(), "Valor informado inválido");
+
     }
 
 }

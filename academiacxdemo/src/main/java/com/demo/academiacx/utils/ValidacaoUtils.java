@@ -86,6 +86,21 @@ public interface ValidacaoUtils {
         }
     }
 
+    static void cepValidation(String cep, String msg){
+
+        valorVazio(cep, msg);
+
+        String CEP_REGEX = "(^[0-9]{5})-?([0-9]{3}$)";
+
+        Pattern CEP_PATTERN = Pattern.compile(CEP_REGEX);
+
+        Matcher matcher = CEP_PATTERN.matcher(cep);
+
+        if(!matcher.matches()){
+            throw new ParametroInvalidoException(msg);
+        }
+    }
+
 
 
 

@@ -15,20 +15,22 @@
 
         if (username === "" || password === "") {
             console.log("Necessário informar username e senha");
-        } else {
+        }
+        else {
             if(password === 'senha123' && username === 'admin'){
 
-                window.location.href = `http://localhost:8090/address/app`;
+                window.location.href = `http://localhost:8090/address/app?username=${username}`;
             }
             else if(password === 'senha123' && username === 'leandro'){
 
-                window.location.href = `http://localhost:8090/address/app`;
+                window.location.href = `http://localhost:8090/address/app?username=${username}`;
             }
             else {
                 erroLogin.innerText = 'Username ou Senha inválidos';
             }
         }
     }
+
 
     function buscaUsuario(username, password) {
         fetch(`http://localhost:8090/user?username=${username}&password=${password}`)
@@ -37,4 +39,3 @@
                 document.getElementById("nome").value = username;
             });
     }
-

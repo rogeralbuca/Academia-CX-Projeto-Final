@@ -1,5 +1,6 @@
 package com.demo.academiacx.controller;
 
+import com.demo.academiacx.model.ClienteModel;
 import com.demo.academiacx.model.dto.ClienteDto;
 import com.demo.academiacx.service.ClienteService;
 import org.springframework.http.ResponseEntity;
@@ -68,5 +69,6 @@ public class ClienteController {
         modelAndView.setViewName("index.html");
         return modelAndView;
     }
+
 
 }

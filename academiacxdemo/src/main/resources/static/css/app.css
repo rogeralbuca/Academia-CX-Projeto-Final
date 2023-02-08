@@ -124,6 +124,10 @@ body {
   transition: .2s ;
 }
 
+#cadastrado {
+  text-align: center;
+  font-weight: bold;
+}
 
 /* Error and Success */
 .form-control.success input {

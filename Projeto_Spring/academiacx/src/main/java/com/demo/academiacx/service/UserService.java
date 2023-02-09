@@ -26,11 +26,11 @@ public class UserService {
 
     private final ModelMapper modelMapper;
 
-    public List<UserDto> findAll() {
+    public List<UserResponseDto> findAll() {
         List<UserModel> userModels = userRepository.findAll();
 
 
-        return modelMapper.map(userModels, new TypeToken<List<UserDto>>() {
+        return modelMapper.map(userModels, new TypeToken<List<UserResponseDto>>() {
         }.getType());
     }
 
@@ -171,7 +171,7 @@ public class UserService {
         if (userModel.equals(null)) {
             throw new RecursoNaoEncontradoException("Usuário não encontrado");
         }
-
         return new UserResponseDto(userModel);
     }
+
 }

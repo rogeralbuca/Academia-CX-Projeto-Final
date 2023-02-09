@@ -21,7 +21,7 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<UserResponseDto> findByUsernameAndPassword(@RequestBody UserRequestDto user) {
+    public ResponseEntity<?> findByUsernameAndPassword(@RequestBody UserRequestDto user) {
 
         UserResponseDto response = userService.findByUsernameAndPassword(user);
 
@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity<?> findAll() {
 
-        List<UserDto> response = userService.findAll();
+        List<UserResponseDto> response = userService.findAll();
 
         return response == null ? ResponseEntity.unprocessableEntity().build() : ResponseEntity.ok(response);
     }

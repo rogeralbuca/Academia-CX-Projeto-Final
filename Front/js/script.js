@@ -7,7 +7,6 @@
 	Array.prototype.slice.call(forms)
 		.forEach(function (form) {
 			form.addEventListener('submit', function (event) {
-				alert(form.value)
 				if (!form.checkValidity()) {
 					event.preventDefault()
 					event.stopPropagation()
@@ -23,22 +22,22 @@ function getRequest(url){
 	request.send()
 	return request.responseText;
 }
-function postRequest(url, data){
+async function postRequest(url, data){
+
 	let request =  new XMLHttpRequest()
 	request.open("POST", url, true)
 
 	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	
+	request.onload = () => {
+		if(request.status === 200){
+			console.log("Status: " + request.status)
+			console.log("Payload: " + request.response)
+		}
+	}
+	
 	request.send(data)
 	return request.responseText;
-}
-function requestParam(){
-	//request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-	/*xhr.onload = function () {
-    // do something to response
-    console.log(this.responseText);
-	};*/
-	//xhr.send('user=person&pwd=password&organization=place&requiredkey=key');
 }
 function preencherEndereco(endereco){
 	cep = document.getElementById("cep");
@@ -89,59 +88,102 @@ function encontrarCep(){
 
 	preencherEndereco(endereco);
 }
-function enviarEndereco(){
+async function enviarEndereco(){
 	let data = Array.from(document.querySelectorAll('#form-endereco input')).reduce((acc, input) =>({
 		...acc,[input.id] : input.value}), {});
 	
+	user = sessionStorage.getItem('user');
 	data.id = "null";
-	data.cliente_id = "1";
+	data.user_id = user.id;
 	data = JSON.stringify(data);
 	
-	data = postRequest("http://localhost:8080/endereco/salvar", data);
-}
-function check_password(){
+	try {
+		const response = await fetch('http://localhost:8080/endereco/salvar', {
+		  method: 'POST',
+		  mode: "cors",
+		  body: data,
+		  headers:{
+			'Content-type': 'application/json;charset=UTF-8'
+		  }
+		});
+		const address = await response.json();
 
-	var password = document.getElementById('password')
-
-    const UpperCase = /[A-Z]/g;
-    const LowerCase = /[a-z]/g;
-    const number = /[0-9]/g;
-      var validated = 0;
-      if (password.length >= 8) {
-          validated++;
-      }
-      if (password.match(number)) {
-          validated++;
-      }
-      if (password.match(UpperCase)) {
-          validated++;
-      }
-      if (password.match(LowerCase)) {
-          validated++;
-      }
-      if (validated == 4) {
-            return true;
-      }
+		if(address.sucess === true){
+			window.location.reload();	
+		}
+   }
+   catch (error) {
+    console.error(error);
+  }
 }
-function login(){
+function check_password(password){
+	/*8 caracteres no mínimo
+	1 Letra Maiúscula no mínimo
+	1 Número no mínimo
+	1 Símbolo no mínimo: $*&@#
+	Se der, também não permitir sequência igual (aa, bb, 44, etc) */
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+
+    if (password.length >= 8 && regex.test(password)) {
+        return true;
+    }
+}
+async function login(){
 	let data = Array.from(document.querySelectorAll('#form-login input')).reduce((acc, input) =>({
 		...acc,[input.id] : input.value}), {});
 
 	if(check_password(data.password)){
-	data.password = CryptoJS.SHA256(data.password);
-
 	data = JSON.stringify(data);
-	response = postRequest("http://localhost:8080/user/login", data);
-	
-		if(response !== null){
+	try {
+		const response =  await fetch('http://localhost:8080/user/login', {
+		  method: 'POST',
+		  body: data,
+		  headers:{
+			'Content-type': 'application/json;charset=UTF-8'
+		  }
+		});
+		const user =  await response.json();
 
-			//response = JSON.parse(response);
-
-			sessionStorage.setItem('username', data.username);
-			sessionStorage.setItem('email', response.email);
-
-
+		if(response.status === 200){
+			sessionStorage.setItem("accepted", true)
+			sessionStorage.setItem("user",JSON.stringify(user));
 			window.location.assign("http://localhost:5500/endereco.html")	
 		}
    }
+   catch (error) {
+    console.error(error);
+  }
+	}
 }
+async function cadastrar(){
+	let data = Array.from(document.querySelectorAll('#form-cadastro input')).reduce((acc, input) =>({
+		...acc,[input.id] : input.value}), {});
+	
+	data = JSON.stringify(data);
+
+	try {
+		const response = await fetch('http://localhost:8080/user/salvar', {
+		  method: 'POST',
+		  mode: "cors",
+		  body: data,
+		  headers:{
+			'Content-type': 'application/json;charset=UTF-8'
+		  }
+		});
+		const user = await response.json();
+		if(response.status === 200){
+			sessionStorage.setItem("accepted", true)
+			sessionStorage.setItem("user",JSON.stringify(user));
+			window.location.assign("http://localhost:5500/endereco.html")	
+		}
+   }
+   catch (error) {
+    console.error(error);
+  }
+}
+function logout(){
+	sessionStorage.removeItem("user");
+	sessionStorage.setItem("accepted", undefined)
+	window.location.assign("http://localhost:5500/login.html")	
+}
+

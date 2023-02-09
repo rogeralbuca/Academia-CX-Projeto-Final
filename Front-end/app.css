@@ -1,0 +1,110 @@
+body {
+    background-image: url("./imagens/wallpaper.jpg");
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    display: flex;
+}
+
+.endereco-container {
+
+  width: 450px;
+  height: 700px;
+  background-color: #fff;
+  margin: 100px auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+form {
+
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dados {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+}
+
+input[id="cadastro"] {
+  width: 40%;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00b0ff;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 0px;
+  text-align: center;
+  font-weight: bold;
+}
+
+input[id="cadastro"]:hover {
+  background-color: #007cbf;
+}
+
+input[type="text"]{
+
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 16px;
+  
+}
+
+input[id="cep"]{
+  display: flex;
+  width: 70%;
+  box-sizing: content-box;
+  padding: 10px;
+  
+}
+
+input[id="cepBotao"] {
+  width: 20%;
+  padding: 10px;
+  cursor: pointer;
+  border:5px solid;
+  background:#00b0ff;
+  color:white;
+  flex: 100%;
+  font-weight: bold;
+}
+
+.classeCep {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.classeCep > #cep {
+  margin-bottom: 0 !important;
+
+}
+

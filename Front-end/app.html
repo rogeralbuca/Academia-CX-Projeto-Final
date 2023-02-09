@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastro de Endereço</title>
+    <link rel="stylesheet" type="text/css" href="app.css" />
+  </head>
+  <body>
+    <div class="endereco-container">
+      <h1>Cadastro de Endereço</h1>
+      <form>
+        <div class="dados">
+          <div class="classeCep">
+            <input
+              type="text"
+              placeholder="CEP"
+              id="cep"
+              onblur="cepRetorno()"
+            />
+            <input type="button" value="Buscar CEP" id="cepBotao" />
+          </div>
+          <input type="text" placeholder="Nome" id="username" />
+          <input type="text" placeholder="Rua" id="rua" />
+          <input type="text" placeholder="Bairro" id="bairro" />
+          <input type="text" placeholder="Cidade" id="cidade" />
+          <input type="text" placeholder="Estado" id="estado" />
+          <input type="text" placeholder="Numero" id="numero" />
+        </div>
+        <input type="button" value="Cadastro" id="cadastro" onclick="cadastrar()"/>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

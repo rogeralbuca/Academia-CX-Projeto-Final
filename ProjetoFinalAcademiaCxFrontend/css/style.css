@@ -113,6 +113,50 @@ form .input-group button{
     justify-content: flex-end;
     padding-bottom: 30px;
 }
+
+
+.table-container {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(40px);
+    padding: 30px 40px;
+    width: 100%;
+    border-radius: 20px;
+
+}
+
+.tableCss td {
+    padding: 10px;
+    border: #3D3D3D 1px solid;
+    border-radius: 5px;
+}
+
+
+
+.buttonVoltar {
+    width: 15%;
+    height: 47px;
+    background: #ff0000;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
 @media (max-width:930px) {
     .img-box{
         display: none;
@@ -131,3 +175,5 @@ form .input-group button{
         padding: 0;
     }
 }
+
+

@@ -35,6 +35,57 @@ function cadastraCep() {
   postCep(url, body);
 }
 
+///////////////// listar endereço
+
+function getCep(url) {
+  let request = new XMLHttpRequest();
+  request.open("GET", url, false);
+  request.send();
+  return request.responseText;
+}
+
+function criaLinha(endereco) {
+  linha = document.createElement("tr");
+
+  tdId = document.createElement("td");
+  tdCep = document.createElement("td");
+  tdEndereco = document.createElement("td");
+  tdNumero = document.createElement("td");
+  tdBairro = document.createElement("td");
+  tdCidade = document.createElement("td");
+  tdEstado = document.createElement("td");
+
+  tdId.innerHTML = endereco.id;
+  tdCep.innerHTML = endereco.cep;
+  tdEndereco.innerHTML = endereco.logradouro;
+  tdNumero.innerHTML = endereco.numero;
+  tdBairro.innerHTML = endereco.bairro;
+  tdCidade.innerHTML = endereco.localidade;
+  tdEstado.innerHTML = endereco.uf;
+
+  linha.appendChild(tdId);
+  linha.appendChild(tdCep);
+  linha.appendChild(tdEndereco);
+  linha.appendChild(tdNumero);
+  linha.appendChild(tdBairro);
+  linha.appendChild(tdCidade);
+  linha.appendChild(tdEstado);
+
+  return linha;
+}
+
+function main() {
+  let data = getCep("http://localhost:8091/cep/all");
+  let enderecos = JSON.parse(data);
+  let tabela = document.getElementById("tabela");
+
+  enderecos.forEach((element) => {
+    let linha = criaLinha(element);
+    tabela.appendChild(linha);
+  });
+}
+main();
+
 ///////////////// user cadastro
 
 const urlCadastro = `http://localhost:8091/usuarios/cadastrar`;
@@ -107,28 +158,31 @@ function redirecionarIndex() {
 }
 
 function redirecionarLogin() {
-    window.location.href = "./login.html";
-  }
-  
-  function save() {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Endereço cadastrado com sucesso",
-      timer: 1500,
-      showConfirmButton: false,
-      
-    });
-  }
+  window.location.href = "./login.html";
+}
 
-  function error() {
-    Swal.fire({
-      icon: "error",
+function redirecionarEnderecos() {
+  window.location.href = "./enderecosCadastrados.html";
+ 
+}
+
+function save() {
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Endereço cadastrado com sucesso",
+    timer: 1500,
+    showConfirmButton: false,
+  });
+}
+
+function error() {
+  Swal.fire({
+    icon: "error",
     title: "Oops...",
     text: "Algo deu errado.",
     showConfirmButton: true,
   });
- 
 }
 
 //////////////////// VALIDAÇÕES
@@ -182,7 +236,4 @@ function validarLogin() {
     error();
     senha.focus();
   }
-  
- 
-  
 }

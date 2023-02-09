@@ -3,13 +3,15 @@ package com.academiacx.projetofinal.service;
 
 import com.academiacx.projetofinal.model.ViaCepModel;
 import com.academiacx.projetofinal.repository.CepRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,8 +21,11 @@ public class ViaCepService {
 
     private final CepRepository cepRepository;
 
-    public ViaCepService(CepRepository cepRepository) {
+    private final ModelMapper modelMapper;
+
+    public ViaCepService(CepRepository cepRepository, ModelMapper modelMapper) {
         this.cepRepository = cepRepository;
+        this.modelMapper = modelMapper;
     }
 
 
@@ -43,6 +48,14 @@ public class ViaCepService {
 
 
         return Optional.of(cepRepository.save(viaCepModel));
+    }
+
+    public List<ViaCepModel> findAll() {
+        List<ViaCepModel> viaCepModels = cepRepository.findAll();
+
+
+        return modelMapper.map(viaCepModels, new TypeToken<List<ViaCepModel>>() {
+        }.getType());
     }
 
 }

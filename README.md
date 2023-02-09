@@ -14,7 +14,11 @@
 
 ##  Tela de cadastrar endereço
 
-![image](https://user-images.githubusercontent.com/87780451/217308196-5db69cf1-4e93-4c4b-bcd4-3a5825b18525.png)
+![image](https://user-images.githubusercontent.com/87780451/217859480-b7cade98-9700-41fe-abe0-7e0be9d8521d.png)
+
+##  Tela de endereços cadastrados
+
+![image](https://user-images.githubusercontent.com/87780451/217860883-151a769b-48ae-40ec-bae5-92b7c80a661c.png)
 
 
 
@@ -44,6 +48,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Pagina de cadastro de usuario.
 * Pagina de login de usuario.
 * Pagina de cadastro de endereço.
+* Pagina de listar endereços cadastrados.
 * Integrações back-end com o front-end
 * Validações de cep, cadastro e login.
 * Integrado sweetAlert para o desenvolvimento dos alertas.

@@ -11,6 +11,8 @@ public class ViaCepModel {
     private long id;
     private String cep;
     private String logradouro;
+
+    String numero;
     private String complemento;
     private String bairro;
     private String localidade;
@@ -29,6 +31,14 @@ public class ViaCepModel {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getCep() {

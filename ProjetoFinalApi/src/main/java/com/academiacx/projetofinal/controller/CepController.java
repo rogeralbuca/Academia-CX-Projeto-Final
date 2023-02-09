@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,7 +20,7 @@ public class CepController {
     @Autowired
     private ViaCepService viaCepService;
 
-    @GetMapping("/cep/{cep}")
+    @GetMapping("/{cep}")
     public ViaCepModel test(@PathVariable String cep){
         return viaCepService.getViaCep(cep);
     }
@@ -34,5 +35,13 @@ public class CepController {
             return ResponseEntity.badRequest().build();
 
         }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> findAll() {
+
+        List<ViaCepModel> response = viaCepService.findAll();
+
+        return response == null ? ResponseEntity.unprocessableEntity().build() : ResponseEntity.ok(response);
     }
 }

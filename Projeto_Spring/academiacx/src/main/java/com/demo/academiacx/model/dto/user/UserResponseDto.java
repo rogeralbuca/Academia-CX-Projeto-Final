@@ -1,0 +1,20 @@
+package com.demo.academiacx.model.dto.user;
+
+import com.demo.academiacx.model.UserModel;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class UserResponseDto {
+    private String email;
+    private String username;
+
+    public UserResponseDto() {
+    }
+
+    public UserResponseDto(UserModel userModel) {
+        this.email = userModel.getEmail();
+        this.username = userModel.getUsername();
+    }
+}

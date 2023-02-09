@@ -125,13 +125,14 @@ document.getElementById("cep").addEventListener("focusout", pesquisarCep);
 
 // APAGAR FORMULÁRIO APÓS CADASTRO
 let apagarFormulario = () => {
-  document.getElementById('cep').value.reset();
-  document.getElementById('nome').value.reset();
-  document.getElementById("rua").value.reset();
-  document.getElementById("bairro").value.reset();
-  document.getElementById("cidade").value.reset();
-  document.getElementById("estado").value.reset();
-  document.getElementById("numero").value.reset();
+  document.getElementById('cep').value = "";
+  document.getElementById('nome').value = "";
+  document.getElementById("rua").value = "";
+  document.getElementById("bairro").value = "";
+  document.getElementById("cidade").value = "";
+  document.getElementById("estado").value = "";
+  document.getElementById("numero").value = "";
+
 };
 
 // CADASTRAR ENDEREÇOS

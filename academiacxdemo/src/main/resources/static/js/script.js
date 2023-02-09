@@ -15,11 +15,12 @@ const erroLogin = document.querySelector("#erro-login");
 
         if (username === "" || password === "") {
             erroLogin.innerText = "Necessário informar username e senha";
-        }else
-            {
-                window.location.href = `http://localhost:8090/address/app?username=${username}`
-            }
+        }else if(username === 'admin' && password === 'senha123'){
+            window.location.href = `http://localhost:8090/address/app?username=${username}`
+        } else {
+            erroLogin.innerText = "Username/Password inválidos";
         }
+    }
 
         function buscaUsuario(username, password) {
             fetch(`http://localhost:8090/user`)

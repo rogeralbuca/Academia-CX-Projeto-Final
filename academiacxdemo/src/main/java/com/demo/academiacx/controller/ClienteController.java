@@ -57,18 +57,25 @@ public class ClienteController {
         return clienteService.findByUsername(username);
     }
 
+//    @GetMapping("/")
+//    public ClienteDto findByUsernameAndPassword(@RequestParam(value = "username") String username,
+//                                                @RequestParam(value = "password") String password){
+//        return clienteService.findByUsernameAndPassword(username, password);
+//    }
+
+
     @GetMapping("/")
-    public ClienteDto findByUsernameAndPassword(@RequestParam(value = "username") String username,
-                                                @RequestParam(value = "password") String password){
-        return clienteService.findByUsernameAndPassword(username, password);
+    public String exibirIndex(ClienteModel clienteModel){
+        return "index.html";
     }
 
-    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
-        return modelAndView;
+    @PostMapping("/efetuarLogin")
+    public String efetuarLogin(ClienteModel clienteModel){
+        if(clienteModel.getUsername().equals("admin") &&
+            clienteModel.getPassword().equals("senha123")){
+            return "redirect:/app.html";
+        } else {
+            return "redirect:/";
+        }
     }
-
-
 }

@@ -18,13 +18,14 @@
 </head>
 <nav class="navbar navbar-light bg-light justify-content-between" style="margin-bottom:0.5rem;">
 	<a class="navbar-brand"><img src="assets/earth_lines.svg" class="brand" alt="logo" style="width: 15%; margin-left: 0.5rem;">
-	<div id="displayUser"><script>
-		var div = document.getElementById("#displayUser")
-		let user = sessionStorage.getItem("user")
-		div.innerText = "Olá, " + user.username;
+		<div id="displayUser" style="padding-top: 0.1rem; margin-left: 0.5rem;"><script>
+		var div = document.querySelector("#displayUser")
+		let user = JSON.parse(sessionStorage.getItem("user"))
+		div.innerHTML = `Olá, ${user.username}`;
+
+		getEnderecos();
 		</script>
-		</div>
-	</a>
+	</div></a>
 	<button class="btn btn-outline-danger my-2 my-sm-0" style="margin-right: 0.5rem;" type="button" onclick="logout()">Logout</button>
   </nav>
 <body>

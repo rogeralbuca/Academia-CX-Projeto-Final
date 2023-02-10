@@ -32,9 +32,6 @@
 								<div class="mb-3">
 									<div class="mb-2 w-100">
 										<label class="text-muted" for="password">Senha</label>
-										<a href="forgot.html" class="float-end">
-											Esqueceu a senha?
-										</a>
 									</div>
 									<input id="password" type="password" class="form-control" name="password" required>
 								    <div class="invalid-feedback">
@@ -43,13 +40,12 @@
 								</div>
 
 								<div class="d-flex align-items-center">
-									<div class="form-check">
-										<input type="checkbox" name="remember" id="remember" class="form-check-input">
-										<label for="remember" class="form-check-label">Lembre-me</label>
-									</div>
 									<button type="button" onclick="login()" class="btn btn-primary ms-auto">
 										Login
 									</button>
+								</div>
+								<div id="alert" class="alert alert-danger collapse" style="margin-top: 1rem;" role="alert">
+									Usuário não encontrado.
 								</div>
 							</form>
 						</div>

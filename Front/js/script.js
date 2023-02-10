@@ -22,23 +22,6 @@ function getRequest(url){
 	request.send()
 	return request.responseText;
 }
-async function postRequest(url, data){
-
-	let request =  new XMLHttpRequest()
-	request.open("POST", url, true)
-
-	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-	
-	request.onload = () => {
-		if(request.status === 200){
-			console.log("Status: " + request.status)
-			console.log("Payload: " + request.response)
-		}
-	}
-	
-	request.send(data)
-	return request.responseText;
-}
 function preencherEndereco(endereco){
 	cep = document.getElementById("cep");
 	logradouro = document.getElementById("logradouro")
@@ -92,7 +75,7 @@ async function enviarEndereco(){
 	let data = Array.from(document.querySelectorAll('#form-endereco input')).reduce((acc, input) =>({
 		...acc,[input.id] : input.value}), {});
 	
-	user = sessionStorage.getItem('user');
+	user = JSON.parse(sessionStorage.getItem("user"))
 	data.id = "null";
 	data.user_id = user.id;
 	data = JSON.stringify(data);
@@ -117,13 +100,7 @@ async function enviarEndereco(){
   }
 }
 function check_password(password){
-	/*8 caracteres no mínimo
-	1 Letra Maiúscula no mínimo
-	1 Número no mínimo
-	1 Símbolo no mínimo: $*&@#
-	Se der, também não permitir sequência igual (aa, bb, 44, etc) */
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
-
     if (password.length >= 8 && regex.test(password)) {
         return true;
     }
@@ -132,53 +109,72 @@ async function login(){
 	let data = Array.from(document.querySelectorAll('#form-login input')).reduce((acc, input) =>({
 		...acc,[input.id] : input.value}), {});
 
-	if(check_password(data.password)){
-	data = JSON.stringify(data);
-	try {
-		const response =  await fetch('http://localhost:8080/user/login', {
-		  method: 'POST',
-		  body: data,
-		  headers:{
-			'Content-type': 'application/json;charset=UTF-8'
-		  }
-		});
-		const user =  await response.json();
+	let password = data.password;
 
-		if(response.status === 200){
-			sessionStorage.setItem("accepted", true)
-			sessionStorage.setItem("user",JSON.stringify(user));
-			window.location.assign("http://localhost:5500/endereco.html")	
+	if(check_password(password)){
+	data = JSON.stringify(data);
+			try {
+				const response =  await fetch('http://localhost:8080/user/login', {
+				method: 'POST',
+				body: data,
+				headers:{
+					'Content-type': 'application/json;charset=UTF-8'
+				}
+				});
+				const user =  await response.json();
+
+				if(response.status === 200){
+					sessionStorage.setItem("accepted", true)
+					sessionStorage.setItem("user",JSON.stringify(user));
+					window.location.assign("http://localhost:5500/endereco.html")	
+				}else{
+					alert("Usuario não encontrado");
+				}
 		}
-   }
-   catch (error) {
-    console.error(error);
-  }
+		catch (error) {
+			console.error(error);
+		}
+	}
+	else{
+		var alert = document.getElementById("alert");
+		alert.classList.remove("collapse");
 	}
 }
 async function cadastrar(){
 	let data = Array.from(document.querySelectorAll('#form-cadastro input')).reduce((acc, input) =>({
 		...acc,[input.id] : input.value}), {});
-	
-	data = JSON.stringify(data);
+	let password = data.password;
 
-	try {
-		const response = await fetch('http://localhost:8080/user/salvar', {
-		  method: 'POST',
-		  mode: "cors",
-		  body: data,
-		  headers:{
-			'Content-type': 'application/json;charset=UTF-8'
-		  }
-		});
-		const user = await response.json();
-		if(response.status === 200){
-			sessionStorage.setItem("accepted", true)
-			sessionStorage.setItem("user",JSON.stringify(user));
-			window.location.assign("http://localhost:5500/endereco.html")	
-		}
-   }
-   catch (error) {
-    console.error(error);
+	data = JSON.stringify(data);
+	if(check_password(password)){
+		try {
+			const response = await fetch('http://localhost:8080/user/salvar', {
+			method: 'POST',
+			mode: "cors",
+			body: data,
+			headers:{
+				'Content-type': 'application/json;charset=UTF-8'
+			}
+			});
+			const user = await response.json();
+			if(response.status === 200){
+				sessionStorage.setItem("accepted", true)
+				sessionStorage.setItem("user",JSON.stringify(user));
+				window.location.assign("http://localhost:5500/endereco.html")	
+			}
+			else{
+				window.location.reload()
+			}
+	}
+	catch (error) {
+		console.error(error);
+	}
+  }
+  else{
+	var ins = document.getElementById("instrucoes");
+	var alert = document.getElementById("alert");
+	ins.classList.add("collapse")
+	alert.classList.remove("collapse");
   }
 }
 function logout(){
@@ -186,4 +182,3 @@ function logout(){
 	sessionStorage.setItem("accepted", undefined)
 	window.location.assign("http://localhost:5500/login.html")	
 }
-

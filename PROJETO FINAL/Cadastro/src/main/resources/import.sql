@@ -1,0 +1,1 @@
+INSERT INTO tb_user (id,nome,cep,rua,numero,bairro,cidade,estado,username,password) VALUES (1,'João','13185411','Rua João José Rodrigues','259','Jardim Nossa De Fátima','Hortolândia','São Paulo','joao','$2a$10$USw7xTDZDmCbgGY6MRoEiejqXl0HnfEZ56ndgEtf4PeafQ9i2mSrC');

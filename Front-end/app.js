@@ -41,3 +41,7 @@ async function cadastrar(){
     })}).then(alert("Cadastrado com sucesso!"))
 
 }
+
+async function retorna(){
+    location.href= "index.html";
+}

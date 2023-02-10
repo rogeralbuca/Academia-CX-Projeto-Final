@@ -1,10 +1,11 @@
 ## Descrição do Projeto
+Este projeto visa em construir uma aplicação com os conceitos aprendidos no decorrer da Academia CX.
 
-Este projeto visa em construir uma aplicação com os conceitos aprendidos no decorrer Academia CX.
+_Obs¹_: Infelizmente meu conhecimento com tecnologias de frontend não é avançado, por isso o projeto está bem simples e pode ter alguns erros no front.
 
 A aplicação é uma plataforma de cadastro de endereços para usuários.
 
-Os usuários podem cadastrar diversos endereços, visualizar sua lista de endereços e suas respectivas posições no mapa.
+Os usuários podem cadastrar diversos endereços e visualizar suas respectivas posições no mapa.
 
 A aplicação está dividida em duas partes:
 

@@ -37,13 +37,16 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserDto findById(@PathVariable Long id) {
+    public UserModel findById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
     @PostMapping("/salvar")
-    public UserResponseDto insert(@RequestBody UserDto userDto) {
-        return userService.insert(userDto);
+    public ResponseEntity<?>  insert(@RequestBody UserDto userDto) {
+
+        UserResponseDto response = userService.insert(userDto);
+
+        return response != null ? ResponseEntity.ok(response) : ResponseEntity.notFound().build();
     }
     @PutMapping("/update")
     public UserModel update(@RequestBody UserModel userModel) {

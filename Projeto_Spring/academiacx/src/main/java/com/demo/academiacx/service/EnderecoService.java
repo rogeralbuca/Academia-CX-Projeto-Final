@@ -7,7 +7,6 @@ import com.demo.academiacx.model.EnderecoModel;
 import com.demo.academiacx.model.UserModel;
 import com.demo.academiacx.model.dto.endereco.EnderecoDto;
 import com.demo.academiacx.repository.EnderecoRepository;
-import com.demo.academiacx.utils.ValidacaoUtils;
 import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
@@ -54,7 +53,7 @@ public class EnderecoService {
         return modelMapper.map(enderecoModel, EnderecoDto.class);
     }
 
-    public List<EnderecoDto> findByClienteId(Long id) {
+    public List<EnderecoDto> findByUserId(Long id) {
         if (id == null) {
             throw new ParametroInvalidoException("Id informado inválido");
         }
@@ -98,7 +97,7 @@ public class EnderecoService {
         EnderecoModel enderecoModel;
 
         try {
-            UserModel userModel = userService.findUserModelById(enderecoDto.getUser_id());
+            UserModel userModel = userService.findById(enderecoDto.getUser_id());
 
             enderecoModel = new EnderecoModel(enderecoDto);
 

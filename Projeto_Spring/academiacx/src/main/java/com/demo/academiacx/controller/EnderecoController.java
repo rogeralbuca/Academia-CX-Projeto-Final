@@ -30,10 +30,10 @@ public class EnderecoController {
 
         return response == null ? ResponseEntity.unprocessableEntity().build() : ResponseEntity.ok(response);
     }
-    @GetMapping("/cliente/{id}")
-    public ResponseEntity<?> findByClienteId(@PathVariable Long id) {
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> findByUserId(@PathVariable Long id) {
 
-        List<EnderecoDto> response = enderecoService.findByClienteId(id);
+        List<EnderecoDto> response = enderecoService.findByUserId(id);
 
         return response == null ? ResponseEntity.unprocessableEntity().build() : ResponseEntity.ok(response);
     }

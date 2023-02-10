@@ -16,8 +16,7 @@ public class EnderecoDto {
     private String cidade;
     private String uf;
     private Long user_id;
-
-
+    private String finalAddress;
     public EnderecoDto() {
 
     }
@@ -31,5 +30,6 @@ public class EnderecoDto {
         this.logradouro = enderecoModel.getLogradouro();
         this.numero = enderecoModel.getNumero();
         this.user_id = enderecoModel.getUser().getId();
+        this.finalAddress = this.logradouro +','+ this.bairro +','+ this.cidade +','+ this.uf+','+ this.cep;
     }
 }

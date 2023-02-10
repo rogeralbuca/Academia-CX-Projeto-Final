@@ -58,7 +58,7 @@ public class UserService {
     }
 
 
-    public UserDto findById(Long id) {
+    public UserModel findById(Long id) {
 
         if (id == null) {
             throw new ParametroInvalidoException("Id informado inválido");
@@ -73,13 +73,12 @@ public class UserService {
             throw new RecursoNaoEncontradoException("Id informado não encontrado");
         }
 
-        return modelMapper.map(userModel, UserDto.class);
+        return userModel;
     }
     public UserModel findUserModelById(Long id) {
 
         if (id == null) {
             throw new ParametroInvalidoException("Id informado inválido");
-
         }
 
         UserModel userModel = new UserModel();

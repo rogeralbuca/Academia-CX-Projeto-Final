@@ -1,5 +1,4 @@
 (function () {
-
 	'use strict'
 
 	var forms = document.querySelectorAll('.needs-validation')
@@ -83,7 +82,6 @@ async function enviarEndereco(){
 	try {
 		const response = await fetch('http://localhost:8080/endereco/salvar', {
 		  method: 'POST',
-		  mode: "cors",
 		  body: data,
 		  headers:{
 			'Content-type': 'application/json;charset=UTF-8'
@@ -126,7 +124,7 @@ async function login(){
 				if(response.status === 200){
 					sessionStorage.setItem("accepted", true)
 					sessionStorage.setItem("user",JSON.stringify(user));
-					window.location.assign("http://localhost:5500/endereco.html")	
+					window.location.assign("http://localhost:5500/endereco.html")
 				}else{
 					alert("Usuario não encontrado");
 				}
@@ -160,7 +158,7 @@ async function cadastrar(){
 			if(response.status === 200){
 				sessionStorage.setItem("accepted", true)
 				sessionStorage.setItem("user",JSON.stringify(user));
-				window.location.assign("http://localhost:5500/endereco.html")	
+				window.location.assign("http://localhost:5500/endereco.html")
 			}
 			else{
 				window.location.reload()
@@ -180,5 +178,5 @@ async function cadastrar(){
 function logout(){
 	sessionStorage.removeItem("user");
 	sessionStorage.setItem("accepted", undefined)
-	window.location.assign("http://localhost:5500/login.html")	
+	window.location.assign("http://localhost:5500/login.html")
 }

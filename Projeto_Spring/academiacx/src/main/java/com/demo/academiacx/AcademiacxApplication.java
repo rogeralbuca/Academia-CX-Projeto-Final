@@ -8,8 +8,5 @@ public class AcademiacxApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(AcademiacxApplication.class, args);
-//        new Gmailer().sendMail("A new message", "" +
-//                "Dear reader" +
-//                " Hello World");
     }
 }

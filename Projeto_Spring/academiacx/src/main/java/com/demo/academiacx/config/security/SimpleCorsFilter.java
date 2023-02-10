@@ -16,7 +16,7 @@ import java.util.List;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class SimpleCorsFilter implements Filter {
 
-    private final List<String> allowedOrigins = Arrays.asList("http://localhost:5500");
+    private final List<String> allowedOrigins = Arrays.asList("http://localhost:5500", "http://localhost:63342");
 
     public SimpleCorsFilter() {
     }

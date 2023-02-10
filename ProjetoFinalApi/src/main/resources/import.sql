@@ -1,0 +1,2 @@
+-- INSERT INTO tb_cadastro(nome, username,email, senha) VALUES ('user', 'maria', 'user@gmail.com', '$2a$10$zZXYZPRFcmTuOcJxQmVv1.WIK8xn3dNaNv6skWMntbYCbydTb/ury
+-- /PFhaykxaAnzbGnFm.O');

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="js/functions.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Cadastrar</title>
+  </head>
+
+  <body>
+    <div class="box">
+      <div class="img-box">
+        <img
+          src="https://img.freepik.com/vetores-gratis/entre-em-contato-com-a-ilustracao-do-conceito_114360-2726.jpg?t=st=1675719642~exp=1675720242~hmac=a1e4be5d3c507d27683709332c9c465f158ad6f63ec09358fb2bf0587964d882"
+        />
+      </div>
+      <div class="form-box">
+        <h2>Criar Conta</h2>
+        <p>Já é cadastrado ? <a href="./login.html"> Login </a></p>
+        <form action="#">
+          <div class="input-group">
+            <label for="nome"> Nome Completo</label>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Digite o seu nome completo"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Digite o seu email"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Digite o seu username"
+              required
+            />
+          </div>
+
+          <div class="input-group w50">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <button
+              onclick="save(),cadastraUsuario(), redirecionarIndex(), validarCadastro()"
+              type="submit"
+            >
+              Salvar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
